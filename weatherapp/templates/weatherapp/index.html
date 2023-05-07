@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Group 5</title>
+    <meta name="description" content="description"/>
+    <meta name="author" content="author" />
+    <meta name="keywords" content="keywords" />
+    <link rel="stylesheet" href="{% static 'styles.css' %}" type="text/css" />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="container">
+        <form method='POST'> {% csrf_token %}
+          <input type="text" name="city" placeholder="Enter City">
+          <button type="submit" class="btn">Enter</button>
+        </form>
+        <div class="weather">
+          <div class="left">
+            <h3>Temperature: {{temp}} &deg;</h3>
+            <h4>City: {{city}}</h4>
+
+            <h5>{{day}}</h5>
+          </div>
+          <div class="right">
+            <div class="icon">
+              <p><img src='http://openweathermap.org/img/w/{{icon}}.png' width='100px' /></p>
+             
+            </div>
+            <div class="condition">
+              <h5>Description: {{description}}</h5>
+              <h5>pressure: {{pressure}}</h5>
+              <h5>Humidity: {{humidity}}</h5>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+  </body>
+</html>
